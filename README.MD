@@ -2,7 +2,7 @@ This is an external component for ESPHome.
 
 It's using the pilight (https://pilight.org/) source for switches with 433Mhz
 
-The user puuu has created ESPiLight to use that protocols for an ESP device.
+The user puuu has created ESPiLight to use that protocols for an ESP device. (https://github.com/puuu/ESPiLight)
 
 I'm using that project and just to wrap a small layer so it can be used by ESPHome (https://esphome.io/)
 
