@@ -13,7 +13,6 @@ namespace esphome {
 #include <ESPiLight.h>
 
 
-/// This class implements calculation of absolute humidity from temperature and relative humidity.
         class EspilightComponent : public esphome::switch_::Switch, public esphome::Component {
         public:
             EspilightComponent() = default;
@@ -33,8 +32,6 @@ namespace esphome {
             void setup() {
                 ESP_LOGI(TAG, "Initializing");
             }
-
-            //float get_setup_priority() const override;
 
             switch_::Switch *source_{nullptr};
             ESPiLight *pespilight{nullptr};
@@ -62,7 +59,6 @@ namespace esphome {
             String protocol_name_ = "";
             String protocol_data_ = "";
 
-//            int pin_ = 0;
             int8_t pin_ = 0;
         };
 
