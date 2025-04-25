@@ -8,7 +8,7 @@
 namespace esphome {
     namespace espilightsw {
 
-        static const char *const TAG = "espilightsw_switch";
+        static const char *const TAG = "espilightsw.switch";
 
 #include <ESPiLight.h>
 
@@ -25,9 +25,9 @@ namespace esphome {
 
             void dump_config() {
                 LOG_SWITCH(TAG, "Espilight", this);
-                //LOG_SWITCH(TAG, "Espilight name", this->protocol_name_);
-                //LOG_SWITCH(TAG, "Espilight data", this->protocol_data_);
-                LOG_NUMBER("", "Pin:", this->pin_);
+//                LOG_SWITCH(TAG, "Espilight name", this->protocol_name_);
+//                LOG_SWITCH(TAG, "Espilight data", this->protocol_data_);
+//                LOG_NUMBER("", "Pin:", this->pin_);
             }
 
             void setup() {
