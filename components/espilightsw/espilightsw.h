@@ -39,7 +39,7 @@ namespace esphome {
 
 
         protected:
-            void do_it(void) {
+            void turn_switch(void) {
                 if (pespilight == nullptr) {
                     pespilight = new ESPiLight(pin_);
                 }
@@ -51,7 +51,7 @@ namespace esphome {
             void write_state(bool state) {
                 if (state) {
                     source_->turn_on();
-                    do_it();
+                    turn_switch();
                 } else {
                     source_->turn_off();
                 }
