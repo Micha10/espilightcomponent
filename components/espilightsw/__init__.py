@@ -6,6 +6,8 @@ from esphome.const import CONF_ID, CONF_PIN
 
 # DEPENDENCIES = ["espilight"]
 
+MULTI_CONF = True
+
 # Das sind die zu verwendenden Bezeichner in der Config.yaml
 CONF_PROTOCOL_NAME = "protocol"
 CONF_PROTOCOL_DATA = "data"
