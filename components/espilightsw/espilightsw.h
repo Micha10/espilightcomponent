@@ -24,9 +24,10 @@ namespace esphome {
             void set_pin(int pin) { pin_ = pin; }
 
             void dump_config() {
-                LOG_SWITCH(TAG, "Espilight name", this->protocol_name_);
-                LOG_SWITCH(TAG, "Espilight data", this->protocol_data_);
-                LOG_PIN("Pin:", this->pin_);
+                LOG_SWITCH(TAG, "Espilight", this);
+                //LOG_SWITCH(TAG, "Espilight name", this->protocol_name_);
+                //LOG_SWITCH(TAG, "Espilight data", this->protocol_data_);
+                //LOG_PIN("Pin:", this->pin_);
             }
 
             void setup() {
