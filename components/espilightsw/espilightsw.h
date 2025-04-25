@@ -20,7 +20,7 @@ namespace esphome {
             void set_protocol_name(String protocol_name) { this->protocol_name_ = protocol_name; }
 
             void set_protocol_data(String protocol_data) { this->protocol_data_ = protocol_data; }
-
+            float get_setup_priority() const override { return setup_priority::LATE; }
             void set_pin(int pin) { pin_ = pin; }
 
             void dump_config() {
@@ -50,9 +50,11 @@ namespace esphome {
 
             void write_state(bool state) {
                 if (state) {
+                    LOG_STR("Write_starte State on")
                     source_->turn_on();
                     //turn_switch();
                 } else {
+                    LOG_STR("Write_starte State off")
                     source_->turn_off();
                 }
             }

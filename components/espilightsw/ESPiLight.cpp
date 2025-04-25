@@ -16,7 +16,7 @@
   along with library. If not, see <http://www.gnu.org/licenses/>
 */
 
-#include <ESPiLight.h>
+#include "ESPiLight.h"
 #include "tools/aprintf.h"
 
 // ESP32 doesn't define ICACHE_RAM_ATTR
