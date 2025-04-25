@@ -51,7 +51,7 @@ namespace esphome {
             void write_state(bool state) {
                 if (state) {
                     source_->turn_on();
-                    turn_switch();
+                    //turn_switch();
                 } else {
                     source_->turn_off();
                 }
