@@ -13,7 +13,7 @@ namespace esphome {
 #include <ESPiLight.h>
 
 
-        class EspilightComponent : public esphome::switch_::Switch, public esphome::Component {
+        class EspilightComponent : public switch_::Switch, public Component {
         public:
             EspilightComponent() = default;
 

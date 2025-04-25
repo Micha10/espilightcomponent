@@ -1,7 +1,7 @@
-import esphome.config_validation as cv
 import esphome.codegen as cg
+import esphome.config_validation as cv
 from esphome.components import switch
-from esphome import pins
+#from esphome import pins
 from esphome.const import CONF_ID, CONF_PIN
 
 # DEPENDENCIES = ["espilight"]
