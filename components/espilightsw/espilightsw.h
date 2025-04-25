@@ -27,7 +27,7 @@ namespace esphome {
                 LOG_SWITCH(TAG, "Espilight", this);
                 //LOG_SWITCH(TAG, "Espilight name", this->protocol_name_);
                 //LOG_SWITCH(TAG, "Espilight data", this->protocol_data_);
-                LOG_PIN("Pin:", this->pin_);
+                LOG_NUMBER("", "Pin:", this->pin_);
             }
 
             void setup() {
