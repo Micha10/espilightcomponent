@@ -19,7 +19,8 @@ class EspilightSwitch : public switch_::Switch, public Component {
 
    void set_protocol_name(String protocol_name) { this->protocol_name_ = protocol_name; }
 
-   void set_protocol_data(String protocol_data) { this->protocol_data_ = protocol_data; }
+   void set_protocol_data_on(String protocol_data) { this->protocol_data_on_ = protocol_data; }
+   void set_protocol_data_off(String protocol_data) { this->protocol_data_off_ = protocol_data; }
 
    void set_pin(int pin) { pin_ = pin; }
 
@@ -34,10 +35,11 @@ class EspilightSwitch : public switch_::Switch, public Component {
 
    void setup() override;
 
-   void turn_switch(void) ;
+   void turn_switch(bool) ;
 
    String protocol_name_ = "";
-   String protocol_data_ = "";
+   String protocol_data_on_ = "";
+   String protocol_data_off_ = "";
 
    int8_t pin_ = 0;
 
