@@ -8,15 +8,15 @@
 
 namespace esphome {
 namespace espilightsw {
-using namespace esphome::switch_;
+//using namespace esphome::switch_;
 static const char *const TAG = "espilightsw";
 
 #include <ESPiLight.h>
 
 
-class EspilightComponent : public switch_::Switch, public Component {
+class EspilightSwitch : public switch_::Switch, public Component {
 public:
-    EspilightComponent() = default;
+//    espilightsw() = default;
 
     void set_protocol_name(String protocol_name) { this->protocol_name_ = protocol_name; }
 
@@ -42,6 +42,17 @@ public:
 
 
 protected:
+        void write_state(bool state) override{
+            if (state) {
+                LOG_STR("Write_starte State on");
+                source_->turn_on();
+                //turn_switch();
+            } else {
+                LOG_STR("Write_starte State off");
+                source_->turn_off();
+            }
+        }
+
     void turn_switch(void) {
         if (pespilight == nullptr) {
             pespilight = new ESPiLight(pin_);
@@ -52,16 +63,6 @@ protected:
 //            src/esphome/components/espilightsw/espilightsw.h:50:19: error: 'float esphome::espilightsw::EspilightComponent::get_setup_priority() const' cannot be overloaded with 'float esphome::espilightsw::EspilightComponent::get_setup_priority() const'
 //            float get_setup_priority() const { return setup_priority::DATA; }
 
-    void write_state(bool state) override{
-        if (state) {
-            LOG_STR("Write_starte State on");
-            source_->turn_on();
-            //turn_switch();
-        } else {
-            LOG_STR("Write_starte State off");
-            source_->turn_off();
-        }
-    }
 
     String protocol_name_ = "";
     String protocol_data_ = "";
