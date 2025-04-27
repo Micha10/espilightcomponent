@@ -10,10 +10,11 @@ Here is an example yaml for ESPHome
 
 ``` yaml
 esphome:
-  name: espilight
+  name: esp32demo2
+  friendly_name: esp32demo2
 
 esp32:
-  board: esp32dev
+  board: esp32-s3-devkitc-1
   framework:
     type: arduino
 
@@ -21,18 +22,23 @@ external_components:
   - source:
       type: git
       url: https://github.com/Micha10/espilightcomponent.git
-    components: [ espilightsw ]
-    refresh: 10s
-
-espilightsw:
-  pin: 19
-  protocol: "quigg_gt1000"
-  data: "{\"id\":1,\"unit\":1,\"state\":\"on\"}"
+    components: [ espilightsw ]    
 
 switch:
-  platform: gpio
-  pin: 2
-  id: t2
+  - platform: espilightsw
+    name: "switch1"
+    protocol: "quigg_gt1000"
+    dataon:  "{\"id\":1,\"unit\":1,\"on\":1}"
+    dataoff: "{\"id\":1,\"unit\":1,\"off\":0}"
+    pin: 18
+
+  - platform: espilightsw
+    name: "switch2"
+    protocol: "quigg_gt1000"
+    dataon: "{\"id\":5,\"unit\":1,\"on\":1}"
+    dataoff: "{\"id\":5,\"unit\":1,\"off\":0}"
+    pin: 18
+
 
 # Enable logging
 logger:
