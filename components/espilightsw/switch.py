@@ -8,7 +8,7 @@ from esphome.cpp_generator import add, get_variable
 
 
 # DEPENDENCIES = ["ESPiLight"]
-MULTI_CONF = True
+# MULTI_CONF = True
 # Das sind die zu verwendenden Bezeichner in der Config.yaml
 CONF_PROTOCOL_NAME = "protocol"
 CONF_PROTOCOL_DATA = "data"

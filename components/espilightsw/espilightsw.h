@@ -6,72 +6,44 @@
 #include "esphome/components/switch/switch.h"
 #include "esphome/core/log.h"
 
-namespace esphome {
-namespace espilightsw {
-//using namespace esphome::switch_;
-static const char *const TAG = "espilightsw";
-
 #include <ESPiLight.h>
 
 
+namespace esphome {
+namespace espilightsw {
+
+static const char *const TAG = "espilightsw";
+
 class EspilightSwitch : public switch_::Switch, public Component {
-public:
-//    espilightsw() = default;
+   public:
 
-    void set_protocol_name(String protocol_name) { this->protocol_name_ = protocol_name; }
+   void set_protocol_name(String protocol_name) { this->protocol_name_ = protocol_name; }
 
-    void set_protocol_data(String protocol_data) { this->protocol_data_ = protocol_data; }
+   void set_protocol_data(String protocol_data) { this->protocol_data_ = protocol_data; }
 
-    float get_setup_priority() const override { return setup_priority::LATE; }
+   void set_pin(int pin) { pin_ = pin; }
 
-    void set_pin(int pin) { pin_ = pin; }
+   float get_setup_priority() const override { return setup_priority::LATE; }
 
-    void dump_config() override{
-        //LOG_SWITCH(TAG, "Espilight name", this->protocol_name_);
-        //LOG_SWITCH(TAG, "Espilight data", this->protocol_data_);
-        //LOG_PIN("Pin:", this->pin_);
-    }
-
-    void setup() {
-        ESP_LOGI(TAG, "Initializing");
-        this->turn_off();
-    }
-
-    switch_::Switch *source_{nullptr};
-    ESPiLight *pespilight{nullptr};
+   void dump_config() override;
 
 
-protected:
-        void write_state(bool state) override{
-            if (state) {
-                LOG_STR("Write_starte State on");
-                source_->turn_on();
-                //turn_switch();
-            } else {
-                LOG_STR("Write_starte State off");
-                source_->turn_off();
-            }
-        }
+   ESPiLight *pESPiLight = nullptr;
+   protected:
+   void write_state(bool state) override;
 
-    void turn_switch(void) {
-        if (pespilight == nullptr) {
-            pespilight = new ESPiLight(pin_);
-        }
-        //pespilight->send(this->protocol_name_, this->protocol_data_);
-    }
+   void setup() override;
 
-//            src/esphome/components/espilightsw/espilightsw.h:50:19: error: 'float esphome::espilightsw::EspilightComponent::get_setup_priority() const' cannot be overloaded with 'float esphome::espilightsw::EspilightComponent::get_setup_priority() const'
-//            float get_setup_priority() const { return setup_priority::DATA; }
+   void turn_switch(void) ;
 
+   String protocol_name_ = "";
+   String protocol_data_ = "";
 
-    String protocol_name_ = "";
-    String protocol_data_ = "";
+   int8_t pin_ = 0;
 
-//            int pin_ = 0;
-    int8_t pin_ = 0;
 };
 
-    }  // namespace espilightsw
+}  // namespace espilightsw
 }  // namespace esphome
 
 #endif
