@@ -22,17 +22,18 @@ external_components:
   - source:
       type: git
       url: https://github.com/Micha10/espilightcomponent.git
-    components: [ espilightsw ]    
+      ref: switchandsensor
+    components: [ espilightSwitch ]    
 
 switch:
-  - platform: espilightsw
+  - platform: espilightSwitch
     name: "switch1"
     protocol: "quigg_gt1000"
     dataon:  "{\"id\":1,\"unit\":1,\"on\":1}"
     dataoff: "{\"id\":1,\"unit\":1,\"off\":0}"
     pin: 18
 
-  - platform: espilightsw
+  - platform: espilightSwitch
     name: "switch2"
     protocol: "quigg_gt1000"
     dataon: "{\"id\":5,\"unit\":1,\"on\":1}"
