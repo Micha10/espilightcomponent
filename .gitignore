@@ -3,3 +3,6 @@
 # You can modify this file to suit your needs.
 /.esphome/
 /secrets.yaml
+/components/.idea
+/components/espilight/espilightSwitch/__pycache__
+/components/espilight/espilightSensor/__pycache__
